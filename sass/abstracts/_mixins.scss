@@ -1,0 +1,9 @@
+// clearfix - resolve the 0 height issues of the parent html element when its children are floated
+
+@mixin clearfix {
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
