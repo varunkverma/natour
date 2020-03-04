@@ -1,0 +1,21 @@
+// basic definitions for the entire project
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+/* setting the global value for font-size */
+
+html {
+  // this defines what 1rem is equivalent to
+  font-size: 62.5%;
+}
+
+/* default fonts and padding related css */
+
+body {
+  box-sizing: border-box;
+}
