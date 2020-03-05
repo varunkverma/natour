@@ -1,6 +1,5 @@
 .row {
   max-width: $grid-width;
-  background-color: #ddd;
   margin: 0 auto;
   &:not(:last-child) {
     margin-bottom: $gutter-vertical;
@@ -10,7 +9,6 @@
 
   // using attribute property to apply style to all the classes having their name starting with "col-"
   [class^="col-"] {
-    background-color: orangered;
     float: left;
     &:not(:last-child) {
       margin-right: $gutter-horizontal;
