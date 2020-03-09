@@ -42,6 +42,16 @@
     }
   }
 
+  /* green Buttons */
+  &--green {
+    background-color: $color-primary;
+    color: $color-white;
+
+    &::after {
+      background-color: $color-primary;
+    }
+  }
+
   /* adding animation on button */
 
   &::after {
