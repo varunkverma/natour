@@ -2,6 +2,7 @@
 
 /* Buttons which are actually anchor tags */
 .btn {
+  &,
   &:link,
   &:visited {
     text-decoration: none;
@@ -13,6 +14,10 @@
     font-size: $default-font-size;
     /* adding animation using trasition */
     transition: all 0.2s;
+
+    // change for button elements
+    border: none;
+    cursor: pointer;
   }
 
   /* hover state */
@@ -27,7 +32,9 @@
   }
 
   /* active state */
-  &:active {
+  &:active,
+  &:focus {
+    outline: none;
     transform: translateY(-0.1rem);
     box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
   }
