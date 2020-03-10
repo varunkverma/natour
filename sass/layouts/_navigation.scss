@@ -10,6 +10,9 @@
     position: fixed;
     top: 6rem;
     right: 6rem;
+    box-shadow: 0 1rem 3rem rgba($color-black, 0.1);
+    text-align: center;
+    cursor: pointer;
     z-index: 2000;
   }
   &__background {
@@ -24,16 +27,19 @@
       $color-primary-dark
     );
     z-index: 1000;
-
+    transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
     //transform: scale(80);
   }
   &__nav {
     height: 100vh;
-    width: 100vw;
+    // width: 100vw;
     position: fixed;
     top: 0;
-    right: 0;
+    left: 0;
     z-index: 1500;
+    opacity: 0;
+    width: 0;
+    transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   }
   &__list {
     position: absolute;
@@ -42,6 +48,7 @@
     transform: translate(-50%, -50%);
     list-style: none;
     text-align: center;
+    width: 100%;
   }
   &__item {
     margin: 1rem;
@@ -71,6 +78,71 @@
       background-position: 100%;
       color: $color-primary;
       transform: translateX(1rem);
+    }
+  }
+
+  // Functionality
+
+  // if checkbox gets checked, increase the navaigation background size
+  &__checkbox:checked ~ &__background {
+    transform: scale(80);
+  }
+
+  // if checkbox is checked, navigation show be visible
+  &__checkbox:checked ~ &__nav {
+    opacity: 1;
+    width: 100vw;
+  }
+
+  // ICON
+  &__icon {
+    position: relative;
+    margin-top: 3.5rem;
+    &,
+    &::before,
+    &::after {
+      width: 3rem;
+      height: 2px;
+      background-color: $color-grey-dark-3;
+      display: inline-block;
+    }
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      transition: all 0.2s;
+    }
+
+    &::before {
+      top: -0.8rem;
+    }
+    &::after {
+      top: 0.8rem;
+    }
+  }
+
+  // hover effect on the hamburger
+  &__button:hover &__icon::before {
+    top: -1rem;
+  }
+  &__button:hover &__icon::after {
+    top: 1rem;
+  }
+
+  // checked effect on the icon
+  &__checkbox:checked + &__button &__icon {
+    & {
+      background-color: transparent;
+    }
+    &::before {
+      transform: rotate(135deg);
+      top: 0;
+    }
+    &::after {
+      transform: rotate(-135deg);
+      top: 0;
     }
   }
 }
